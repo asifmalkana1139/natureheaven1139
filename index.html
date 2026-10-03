@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nature Heaven</title>
+
+<style>
+
+/* ================= GENERAL ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    line-height:1.7;
+    color:#23452d;
+    background:#f4fbf4;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+section{
+    padding:80px 0;
+}
+
+h2{
+    color:#1d5b32;
+}
+
+
+/* ================= NAVBAR ================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:#0b3d21;
+}
+
+nav{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    min-height:70px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#7ee081;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#7ee081;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+    color:white;
+
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero-content{
+    width:90%;
+    max-width:850px;
+}
+
+.hero h1{
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:#4caf50;
+    color:white;
+    text-decoration:none;
+
+    padding:13px 28px;
+    border-radius:30px;
+
+    font-weight:bold;
+
+    border:2px solid #4caf50;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:transparent;
+}
+
+
+/* ================= WELCOME ================= */
+
+.welcome{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.welcome img{
+    width:100%;
+    border-radius:20px;
+}
+
+.welcome h2{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+
+/* ================= TITLES ================= */
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#63806b;
+}
+
+
+/* ================= FEATURES ================= */
+
+#features{
+    background:#eaf7eb;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    text-align:center;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card .icon{
+    font-size:50px;
+}
+
+.card h3{
+    color:#246238;
+    margin:10px 0;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about-text{
+    display:grid;
+    gap:25px;
+}
+
+.about-text p{
+    background:white;
+    padding:28px;
+
+    border-left:5px solid #4caf50;
+    border-radius:10px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+
+    text-align:justify;
+}
+
+
+/* ================= GALLERY ================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+
+    border-radius:15px;
+
+    transition:.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.04);
+}
+
+
+/* ================= CONTACT ================= */
+
+#contact{
+    background:#eaf7eb;
+}
+
+.contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.contact-info{
+    background:#1d5b32;
+    color:white;
+
+    padding:35px;
+    border-radius:20px;
+}
+
+.contact-info h3{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.contact-info p{
+    margin:15px 0;
+}
+
+form{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+form input,
+form textarea{
+    width:100%;
+
+    padding:14px;
+    margin:8px 0 18px;
+
+    border:1px solid #ccd9ce;
+    border-radius:8px;
+
+    font-size:16px;
+}
+
+form textarea{
+    height:140px;
+    resize:vertical;
+}
+
+button{
+    cursor:pointer;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#10351f;
+    color:#d8eadb;
+
+    text-align:center;
+    padding:30px 20px;
+}
+
+footer a{
+    color:#8bd68f;
+    text-decoration:none;
+    margin:0 10px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:800px){
+
+    nav ul{
+        gap:10px;
+        font-size:13px;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .welcome{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .contact{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:520px){
+
+    nav{
+        padding:0 10px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+
+<nav>
+
+<div class="logo">
+Nature<span>Haven</span> 🌿
+</div>
+
+<ul>
+
+<li>
+<a href="#home">Home</a>
+</li>
+
+<li>
+<a href="#about">About</a>
+</li>
+
+<li>
+<a href="#features">Features</a>
+</li>
+
+<li>
+<a href="#gallery">Gallery</a>
+</li>
+
+<li>
+<a href="#contact">Contact</a>
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+
+<!-- ================= HOME ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>
+Discover The Beauty Of Nature
+</h1>
+
+<p>
+Nature is our greatest treasure. Explore forests,
+mountains, rivers, wildlife and the peaceful world around us.
+</p>
+
+<a href="#about" class="btn">
+Explore More
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= WELCOME ================= -->
+
+<section>
+
+<div class="container welcome">
+
+<img
+src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1000&q=80"
+alt="Beautiful nature"
+>
+
+<div>
+
+<h2>
+Welcome To Nature Haven
+</h2>
+
+<p>
+Nature Haven is a website created for people who love
+nature and want to learn more about our beautiful planet.
+Nature gives us clean air, fresh water, food and shelter.
+</p>
+
+<br>
+
+<p>
+Explore our website and discover forests, mountains,
+rivers, wildlife and many other wonderful parts of nature.
+</p>
+
+<br>
+
+<a href="#features" class="btn">
+Learn More
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= FEATURES ================= -->
+
+<section id="features">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Why Nature Matters
+</h2>
+
+<p>
+Small actions can help protect our beautiful planet.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">
+🌳
+</div>
+
+<h3>
+Forests
+</h3>
+
+<p>
+Forests provide oxygen, shelter wildlife,
+protect soil and support many communities.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+💧
+</div>
+
+<h3>
+Clean Water
+</h3>
+
+<p>
+Healthy rivers, lakes and wetlands are
+essential for humans, animals and plants.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🦋
+</div>
+
+<h3>
+Wildlife
+</h3>
+
+<p>
+Every species plays an important role in
+maintaining the balance of nature.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+About Nature
+</h2>
+
+<p>
+Learn about the importance and beauty of our natural world.
+</p>
+
+</div>
+
+
+<div class="about-text">
+
+
+<!-- PARAGRAPH 1 -->
+
+<p>
+
+Nature is the living and non-living world that surrounds us,
+including forests, mountains, rivers, oceans, deserts, soil,
+air, plants, animals and countless microorganisms. It is a
+complex network in which every part is connected to another.
+Trees absorb carbon dioxide and release oxygen, plants provide
+food and shelter, insects help pollinate flowers, and rivers
+carry fresh water through landscapes. Mountains influence
+weather patterns, wetlands help filter water, and oceans
+support a huge variety of life. Human beings are also deeply
+connected to these systems because we depend on nature for
+food, clean water, breathable air, materials and many other
+resources. Beyond these practical benefits, nature gives people
+opportunities to experience beauty, peace and inspiration.
+A walk through a forest, the sound of flowing water, the sight
+of birds in the morning or a sunset over the mountains can
+create a sense of connection with the world. Learning about
+nature helps us understand that the planet is not simply a
+collection of separate places; it is a shared system. When one
+part of an ecosystem changes, other parts can also be affected.
+For this reason, understanding natural processes and respecting
+living systems are important steps toward building a healthier
+relationship between people and the environment.
+
+</p>
+
+
+<!-- PARAGRAPH 2 -->
+
+<p>
+
+Forests are among the most valuable ecosystems on Earth because
+they support biodiversity while providing important environmental
+and social benefits. A forest can contain enormous numbers of
+trees, shrubs, flowers, fungi, insects, birds and mammals, all
+interacting within the same ecosystem. Trees help store carbon,
+produce oxygen through photosynthesis, provide shade and
+contribute to the water cycle. Their roots can hold soil in
+place and reduce erosion, while fallen leaves return nutrients
+to the ground. Forests also provide homes for wildlife and
+resources for millions of people. Many communities depend on
+forests for food, medicine, fuel, building materials and income.
+However, forests can be affected by activities such as
+uncontrolled cutting, land conversion, fires and pollution.
+Protecting forests does not mean preventing people from using
+natural resources; it means finding responsible ways to meet
+human needs while maintaining ecological functions. Planting
+native trees, preventing illegal logging, restoring damaged
+habitats and supporting sustainable forestry can all contribute
+to forest protection. Individuals can also help by reducing
+unnecessary waste, choosing responsibly produced products and
+learning about local ecosystems. Healthy forests benefit not
+only the animals and plants living inside them but also people
+living far away. Their influence can extend across landscapes
+through water, climate, soil and biodiversity, making forest
+conservation an important part of caring for the wider natural
+environment.
+
+</p>
+
+
+<!-- PARAGRAPH 3 -->
+
+<p>
+
+Water is another essential part of nature, and life on Earth
+depends on its continuous movement through the water cycle.
+Rain falls from clouds, enters rivers and lakes, moves through
+soil, becomes groundwater and eventually returns to the
+atmosphere through evaporation and transpiration. Oceans contain
+most of the planet's water, while freshwater is found in rivers,
+lakes, glaciers and underground reserves. Plants and animals
+require water to survive, and human societies need it for
+drinking, farming, sanitation, industry and many other
+activities. Healthy aquatic ecosystems also support fish, birds,
+insects, plants and microorganisms. Unfortunately, water can be
+damaged when waste, chemicals, plastic and untreated sewage
+enter rivers or lakes. Excessive extraction can also reduce
+water availability, especially in areas where rainfall is
+limited. Protecting water requires cooperation between
+individuals, communities, businesses and governments. Simple
+actions such as avoiding litter, using water carefully,
+preventing harmful substances from entering drains and
+supporting clean-up activities can make a difference. Wetlands,
+forests and natural vegetation are also important because they
+can help absorb rainfall, reduce flooding and improve water
+quality. Understanding where our water comes from encourages
+greater responsibility. Instead of seeing water as an unlimited
+resource, we can recognize it as part of a connected natural
+system that must be protected for present and future generations.
+
+</p>
+
+
+<!-- PARAGRAPH 4 -->
+
+<p>
+
+Protecting nature is a shared responsibility, and meaningful
+environmental care can begin with everyday choices. People can
+reduce waste, reuse materials, recycle where suitable, save
+electricity and water, grow native plants and avoid disturbing
+wildlife. Communities can organize tree planting, clean public
+spaces, restore local habitats and educate younger generations
+about environmental responsibility. Schools can encourage
+students to observe local biodiversity and learn how ecosystems
+function, while organizations can support conservation and
+responsible resource management. Protecting nature also requires
+attention to larger environmental challenges, including habitat
+loss, pollution, unsustainable resource use and climate change.
+These challenges are connected, so solutions often need
+cooperation across different sectors and communities.
+Conservation is not only about protecting distant forests or
+rare animals; it also includes caring for parks, rivers,
+gardens, soil and wildlife in places where people live. A healthy
+natural environment can make communities more pleasant and
+resilient, while biodiversity provides ecological functions
+that support human life. Every person may have a different role,
+but awareness is a useful starting point. When people understand
+how their actions affect the environment, they can make more
+informed choices and encourage others to do the same. The goal
+is not to create a world without human activity, but to build a
+relationship in which people can live, work and develop while
+respecting the natural systems that make life possible.
+
+</p>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Nature Gallery
+</h2>
+
+<p>
+A glimpse of the beautiful natural world.
+</p>
+
+</div>
+
+
+<div class="gallery">
+
+<img
+src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80"
+alt="Forest"
+>
+
+<img
+src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+alt="Mountain lake"
+>
+
+<img
+src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80"
+alt="Mountain"
+>
+
+<img
+src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+alt="Forest"
+>
+
+<img
+src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+alt="Mountains"
+>
+
+<img
+src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80"
+alt="Green forest"
+>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Contact Us
+</h2>
+
+<p>
+We would love to hear from you.
+</p>
+
+</div>
+
+
+<div class="contact">
+
+
+<div class="contact-info">
+
+<h3>
+Let's Connect 🌿
+</h3>
+
+<p>
+📍 Green Valley, Earth
+</p>
+
+<p>
+📧 hello@naturehaven.com
+</p>
+
+<p>
+📞 +92 300 1234567
+</p>
+
+<p>
+Nature is our shared home.
+Let's work together to protect it.
+</p>
+
+</div>
+
+
+<form onsubmit="sendMessage(event)">
+
+<label>
+Name
+</label>
+
+<input
+type="text"
+placeholder="Enter your name"
+required
+>
+
+
+<label>
+Email
+</label>
+
+<input
+type="email"
+placeholder="Enter your email"
+required
+>
+
+
+<label>
+Message
+</label>
+
+<textarea
+placeholder="Write your message..."
+required
+></textarea>
+
+
+<button
+type="submit"
+class="btn"
+>
+Send Message
+</button>
+
+</form>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<p>
+© 2026 Nature Haven | Made with 🌿 for Nature Lovers
+</p>
+
+<br>
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#gallery">Gallery</a>
+
+<a href="#contact">Contact</a>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function sendMessage(event){
+
+    event.preventDefault();
+
+    alert("Thank you! Your message has been received.");
+
+    event.target.reset();
+
+}
+
+</script>
+
+
+</body>
+</html>
